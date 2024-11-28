@@ -1,9 +1,12 @@
 import React from 'react'
+import SelectMovie from '../Components/SelectMovie'
 
 const Home = () => {
   return (
     <div>
-        hello , i am Home
+        <div className='select_movie_component'>
+            <SelectMovie/>
+        </div>
     </div>
   )
 }
