@@ -2,6 +2,8 @@ import React from 'react'
 import SelectMovie from '../Components/SelectMovie'
 import TimeSchedule from '../Components/TimeSchedule'
 import SelectSeat from '../Components/SelectSeat'
+import LastBooking from '../Components/LastBooking'
+import '../Css/Home.css'
 
 const Home = () => {
   return (
@@ -17,7 +19,7 @@ const Home = () => {
       <div className='time_seats_container'>
         <TimeSchedule/>
         <SelectSeat/>
-        <button> Book Now </button>
+        <button className='btn'> Book Now </button>
       </div>
     </div>
   )
