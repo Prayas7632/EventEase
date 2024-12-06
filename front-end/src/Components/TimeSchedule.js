@@ -1,6 +1,7 @@
 import React from 'react'
 import { slots } from '../Data'
 import RadioComponent from './RadioComponent'
+import '../Css/TimeSchedule.css'
 
 const TimeSchedule = () => {
   return (
