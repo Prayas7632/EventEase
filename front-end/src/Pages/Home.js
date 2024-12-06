@@ -4,6 +4,7 @@ import TimeSchedule from '../Components/TimeSchedule'
 import SelectSeat from '../Components/SelectSeat'
 import LastBooking from '../Components/LastBooking'
 import '../Css/Home.css'
+import '../Css/LastBookingDetails.css'
 
 const Home = () => {
   return (
