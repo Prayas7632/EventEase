@@ -4,10 +4,10 @@ import '../Css/RadioComponent.css'
 const RadioComponent = ({text, changeSelection, data}) => {
 
   const handleChecked = (val) => {
-    changeSelection(val)
+    changeSelection(val);
   }
   return (
-    <div name = {text} className='form-check-label' onClick ={() => {handleChecked(text)}}>
+    <div name = {text} className={`form-check-label ${data === text ? "active" : "inactive"}`} onClick ={() => {handleChecked(text)}}>
         <span className='text'>
             {text}
         </span>
