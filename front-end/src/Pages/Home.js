@@ -7,6 +7,11 @@ import '../Css/Home.css'
 import '../Css/LastBookingDetails.css'
 
 const Home = () => {
+
+  const handleBookNow = () => {
+    
+  }
+
   return (
     <div className='container'>
       <div className='wrapper'>
@@ -20,7 +25,9 @@ const Home = () => {
       <div className='time_seats_container'>
         <TimeSchedule/>
         <SelectSeat/>
-        <button className='btn'> Book Now </button>
+        <button className='btn' onClick={() => {
+          handleBookNow()
+        }}> Book Now </button>
       </div>
     </div>
   )
