@@ -1,6 +1,6 @@
 const express = require('express')
 
-const route = express.Router();
+const router = express.Router();
 const Ticket = require("./schema")
 
 const cors = require('cors')
@@ -31,16 +31,17 @@ router.get("/booking", async(req,res) => {
         const myData = await Ticket.find().sort({_id:-1}).limit(1)
 
         if(myData.length === 0){
-            res.status(200).json({data:null}, message:"No previous booking found")
+            res.status(200).json({data:null, message:"No previous booking found"})
         }else{
             res.status(200).json({data:myData[0]})
         }
-    }catch{
-        res.status(500).json{
+    }catch(error){
+        res.status(500).json({
             data:null,
+            error,
             message:"Something went wrong!"
-        }
+        })
     }
 })
 
-module.export = router
+module.exports = router
