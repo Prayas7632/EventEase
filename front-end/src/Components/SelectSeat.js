@@ -6,7 +6,7 @@ import BsContext from '../Context/BsContext';
 
 const SelectSeat = () => {
   const context = useContext(BsContext);
-  const {noOfSeat, changeNoOfSeats} = context;
+  const {noOfSeat, changeNoOfSeat} = context;
 
   return (
     <div>
@@ -14,7 +14,7 @@ const SelectSeat = () => {
         <h1 className='SS_heading'>Select Seats : </h1>
         <div className='SS_main_container'>
           {seats.map((el, index) => 
-            <SeatInputs key={index} text={el} noOfSeat = {noOfSeat} changeNoOfSeats = {changeNoOfSeats}/>
+            <SeatInputs key={index} text={el} noOfSeat = {noOfSeat} changeNoOfSeat = {changeNoOfSeat}/>
           )}
         </div>
       </div>
