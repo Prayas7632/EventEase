@@ -9,7 +9,7 @@ const LastBooking = () => {
   const { LastBookingDetails, handleGetBooking } = context
   useEffect(() => {
     handleGetBooking()
-  }, [])
+  })
 
   return (
     <div className='last_booking_datails_container_main'>
