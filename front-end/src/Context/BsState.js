@@ -24,7 +24,7 @@ const BsState = (props) => {
     const [lastbookingDetails, setLastBookingDetails] = useState(null)
 
     const handlePostBooking = async () => {
-        const response = await fetch(`https://localhost:8080/api/booking`, {
+        const response = await fetch(`http://localhost:8080/api/booking`, {
             method: "Post",
             headers: {
                 "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const BsState = (props) => {
 
 
     const handleGetBooking = async () => {
-        const response = await fetch(`https://localhost:8080/api/booking`, {
+        const response = await fetch(`http://localhost:8080/api/booking`, {
             method: "Get"
         })
 
