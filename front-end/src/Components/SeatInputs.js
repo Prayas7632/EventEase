@@ -1,10 +1,10 @@
 import React from 'react'
 import '../Css/SeatInput.css'
 
-const SeatInputs = ({key, text, noOfSeat, changeNoOfSeats}) => {
+const SeatInputs = ({text, noOfSeat, changeNoOfSeat}) => {
 
   const change_seats = (e) =>{
-    changeNoOfSeats({...noOfSeat,[e.target.name]:Number(e.target.value)})
+    changeNoOfSeat({...noOfSeat,[e.target.name]:Number(e.target.value)})
 
     window.localStorage.setItem("seats",
       JSON.stringify({
