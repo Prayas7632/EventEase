@@ -4,21 +4,20 @@ import { seats } from "../Data";
 
 const BsState = (props) => {
 
-    const [errorPopup, setErrorPopup] = useState("False")
+    const [errorPopup, setErrorPopup] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
-
 
     const [movie, changeMovie] = useState('')
 
     const [time, changeTime] = useState('')
 
     const [noOfSeat, changeNoOfSeat] = useState({
-        A1: "",
-        A2: "",
-        A3: "",
-        A4: "",
-        D1: "",
-        D2: "",
+        A1: 0,
+        A2: 0,
+        A3: 0,
+        A4: 0,
+        D1: 0,
+        D2: 0,
     })
 
     const [lastbookingDetails, setLastBookingDetails] = useState(null)
@@ -44,6 +43,8 @@ const BsState = (props) => {
             setLastBookingDetails(data.data)
 
             window.localStorage.clear()
+        } else {
+            window.alert(await response.body())
         }
 
     }
@@ -60,25 +61,28 @@ const BsState = (props) => {
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const movie = window.localStorage.getItem("movie")
         const slot = window.localStorage.getItem("slot")
         const seats = JSON.parse(window.localStorage.getItem("seats"))
 
-        if(movie){
+        if (movie) {
             changeMovie(movie)
         }
-        if(slot){
+        if (slot) {
             changeTime(slot)
         }
-        if(seats){
+        if (seats) {
             changeNoOfSeat(seats)
         }
     }, [])
 
 
     return (
-        <BsContext.Provider value={{ movie, changeMovie, time, changeTime, noOfSeat, changeNoOfSeat, lastbookingDetails, handleGetBooking, handlePostBooking , errorMessage, errorPopup,setErrorMessage, setErrorPopup}}>{props.children}</BsContext.Provider>
+        <BsContext.Provider value={{ movie, changeMovie, time, changeTime, noOfSeat, changeNoOfSeat, lastbookingDetails, handleGetBooking, handlePostBooking, errorMessage, errorPopup, setErrorMessage, setErrorPopup }}>
+            {props.children}
+            {errorPopup && <h1>{errorMessage}</h1>}
+        </BsContext.Provider>
     )
 }
 
