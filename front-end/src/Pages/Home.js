@@ -11,21 +11,21 @@ const Home = () => {
 
   const context = useContext(BsContext)
 
-  const {movie, time, noOfSeat, handlePostBooking, setErrorPopup, setErrorMessage,} = context
+  const { movie, time, noOfSeat, handlePostBooking, setErrorPopup, setErrorMessage, } = context
 
   const handleBookNow = () => {
-    if(!movie){
+    console.log(`movie: '${movie}'`)
+    console.log("!movie || movie.length == 0 = ", !movie || movie.length == 0)
+    if (!movie || movie.length == 0) {
       setErrorPopup(true)
       setErrorMessage("Please Select a Movie")
-    }
-    if(!time){
+    } else if (!time) {
       setErrorPopup(true)
       setErrorMessage("Please Select time slot")
-    }
-    if(!noOfSeat){
+    } else if (!noOfSeat || Object.values(noOfSeat).every(value => value === 0)) {
       setErrorPopup(true)
-      setErrorMessage("Please Select no of seats")
-    }else{
+      setErrorMessage("Please select some seats")
+    } else {
       handlePostBooking()
     }
   }
@@ -37,12 +37,12 @@ const Home = () => {
           <SelectMovie />
         </div>
         <div className='last_booking_details_container'>
-          <LastBooking/>
+          <LastBooking />
         </div>
       </div>
       <div className='time_seats_container'>
-        <TimeSchedule/>
-        <SelectSeat/>
+        <TimeSchedule />
+        <SelectSeat />
         <button className='btn' onClick={() => {
           handleBookNow()
         }}> Book Now </button>
