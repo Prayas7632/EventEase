@@ -1,0 +1,30 @@
+language: node_js # Or your project's language (e.g., ruby, python, generic)
+node_js:
+  - "lts/*" # Use a stable or LTS Node.js version if you have a Node.js project
+
+cache:
+  directories:
+    - node_modules # Cache node_modules to speed up builds if using Node.js
+
+jobs:
+  include:
+    - stage: build
+      name: "Build Project"
+      script:
+        - npm install # Install dependencies if applicable
+        - npm run build # Your build command to generate static files (e.g., React, Vue, Jekyll, etc.)
+
+    - stage: deploy
+      name: "Deploy to GitHub Pages"
+      if: branch = main AND type = push # Deploy only on pushes to the 'main' branch
+      script:
+        # No script needed here if using the 'pages' provider with local_dir
+      deploy:
+        provider: pages
+        skip_cleanup: true # Important: Prevents Travis CI from deleting your built files
+        github_token: $GITHUB_TOKEN # Secure variable from Travis CI settings
+        local_dir: /front-end/build # The directory containing your static website files (e.g., 'build', 'public', '_site')
+        target_branch: gh-pages # The branch where GitHub Pages serves content
+        keep_history: true # Recommended to keep commit history on gh-pages branch
+        on:
+          branch: main # Only deploy when changes are pushed to the 'main' branch

@@ -14,8 +14,8 @@ const Home = () => {
   const { movie, time, noOfSeat, handlePostBooking, setErrorPopup, setErrorMessage, } = context
 
   const handleBookNow = () => {
-    console.log(`movie: '${movie}'`)
-    console.log("!movie || movie.length == 0 = ", !movie || movie.length == 0)
+    // console.log(`movie: '${movie}'`)
+    // console.log("!movie || movie.length == 0 = ", !movie || movie.length == 0)
     if (!movie || movie.length == 0) {
       setErrorPopup(true)
       setErrorMessage("Please Select a Movie")
