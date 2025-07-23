@@ -22,7 +22,7 @@ jobs:
       deploy:
         provider: pages
         skip_cleanup: true # Important: Prevents Travis CI from deleting your built files
-        github_token: $GITHUB_TOKEN # Secure variable from Travis CI settings
+        github_token: $MY_TOKEN # Secure variable from Travis CI settings
         local_dir: /front-end/build # The directory containing your static website files (e.g., 'build', 'public', '_site')
         target_branch: gh-pages # The branch where GitHub Pages serves content
         keep_history: true # Recommended to keep commit history on gh-pages branch
